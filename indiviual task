@@ -1,0 +1,23 @@
+"use client"
+
+import { TaskMetrics } from "./components/task-metrics"
+import { TaskCharts } from "./components/task-charts"
+import { TaskInsights } from "./components/task-insights"
+import { useTaskStore } from "@/packages/stores/task-store"
+
+export function TaskAnalytics() {
+  const { tasks } = useTaskStore()
+
+  return (
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-2xl font-semibold">Task Analytics</h2>
+        <p className="text-muted-foreground">Comprehensive insights and metrics for your task management</p>
+      </div>
+
+      <TaskMetrics tasks={tasks} />
+      <TaskCharts tasks={tasks} />
+      <TaskInsights tasks={tasks} />
+    </div>
+  )
+}
